@@ -1,0 +1,57 @@
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.modules-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    width: 100%;
+}
+
+/* Loading and Error States */
+.loading, .error {
+    text-align: center;
+    padding: 40px;
+    color: #b5bac1;
+    font-size: 1.1rem;
+}
+
+.error {
+    color: #ff6b6b;
+}
+
+/* Responsive for larger screens */
+@media (min-width: 768px) {
+    .dashboard {
+        max-width: 800px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 24px;
+        align-items: start;
+    }
+    
+    .hero-stats-card {
+        grid-column: 1 / -1;
+        justify-self: center;
+    }
+    
+    .stat-grid {
+        grid-column: 1 / -1;
+        max-width: 100%;
+    }
+    
+    .modules-grid {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+    }
+}
