@@ -1,0 +1,109 @@
+/* src/pages/storypage.css */
+
+.story-page-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: 
+        radial-gradient(circle at 15% 0%, rgba(124, 58, 237, 0.10), transparent 32%),
+        linear-gradient(135deg, #0b1120 0%, #0f172a 58%, #111827 100%);
+}
+
+.story-complete-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+    width: 100%;
+}
+
+.story-complete-box {
+    background: var(--card);
+    border-radius: 16px;
+    padding: 40px 50px;
+    text-align: center;
+    border: 1px solid var(--border);
+    max-width: 500px;
+    width: 100%;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+}
+
+.story-complete-box h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 8px 0;
+}
+
+.story-complete-box p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0 0 24px 0;
+}
+
+.story-complete-actions {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.story-complete-actions .btn-primary {
+    padding: 12px 32px;
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.story-complete-actions .btn-primary:hover {
+    background: var(--purple-bright);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(124, 58, 237, 0.3);
+}
+
+.story-complete-actions .btn-secondary {
+    padding: 12px 24px;
+    background: transparent;
+    color: var(--text-secondary);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.story-complete-actions .btn-secondary:hover {
+    color: var(--text-primary);
+    border-color: var(--text-secondary);
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    .story-complete-box {
+        padding: 24px 20px;
+    }
+
+    .story-complete-box h2 {
+        font-size: 1.5rem;
+    }
+
+    .story-complete-actions {
+        flex-direction: column;
+    }
+
+    .story-complete-actions .btn-primary,
+    .story-complete-actions .btn-secondary {
+        width: 100%;
+        text-align: center;
+    }
+}

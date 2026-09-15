@@ -3,19 +3,19 @@
 //footer
 import React from "react";
 import Navbar from "./navbar";
-import Footer from "./footer";
+//import Footer from "./footer";
 import './uicomponents.css';
 
-const AppLayout = ({ children }) => {
+const AppLayout = ({ children, onOpenGrimoire }) => {
   return (
     <div className="app-layout">
-      <Navbar/>
+      <Navbar onOpenGrimoire={onOpenGrimoire} />
 
       <main className="app-content">
         {children}
       </main>
 
-      <Footer />
+      {/*<Footer />*/}
     </div>
     );
 };

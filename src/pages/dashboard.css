@@ -1,57 +1,475 @@
+/* src/pages/dashboard.css */
 
-.dashboard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    max-width: 400px;
-    margin: 0 auto;
+/* ========================================
+   GLOBAL RESET
+   ======================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.modules-grid {
+:root {
+    --bg: #0b1120;
+    --bg-secondary: #0f172a;
+    --card: #111827;
+    --card-elevated: #182235;
+    --border: #293548;
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
+    --text-muted: #64748b;
+    --purple: #7c3aed;
+    --purple-bright: #8b5cf6;
+    --purple-dark: #5b21b6;
+    --success: #22c55e;
+    --success-bright: #4ade80;
+    --warning: #f59e0b;
+    --danger: #ef4444;
+    --locked: #475569;
+    --cyan: #22d3ee;
+}
+
+html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100%;
+}
+
+
+/* ========================================
+   DASHBOARD - GUILD COMMAND HALL
+   ======================================== */
+
+.dashboard {
+    --guild-bg: #0B1120;
+    --guild-surface: #111827;
+    --guild-surface-elevated: #182235;
+    --guild-border: #293548;
+
+    --guild-text: #F8FAFC;
+    --guild-text-secondary: #94A3B8;
+    --guild-text-muted: #64748B;
+
+    --guild-purple: #7C3AED;
+    --guild-purple-bright: #8B5CF6;
+    --guild-purple-dark: #5B21B6;
+
+    --guild-success: #22C55E;
+    --guild-warning: #F59E0B;
+    --guild-danger: #EF4444;
+    --guild-locked: #475569;
+
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 24px;
     display: flex;
     flex-direction: column;
-    gap: 14px;
+    gap: 24px;
+}
+
+
+/* ========================================
+   TOP ROW - CHARACTER + GUILD STATS
+   ======================================== */
+
+.top-row {
+    display: flex;
+    gap: 24px;
+    width: 100%;
+    align-items: stretch;
+}
+
+
+/* ========================================
+   CHARACTER / HERO COLUMN
+   ======================================== */
+
+.hero-column {
+    flex: 0 0 280px;
+    min-width: 250px;
+}
+
+
+/* Make Hero Card fill available space */
+.hero-column > * {
+    width: 100%;
+    height: 100%;
+}
+
+
+/* ========================================
+   GUILD STATS COLUMN
+   ======================================== */
+
+.stats-column {
+    flex: 1;
+    min-width: 0;
+}
+
+
+/* Make StatGrid fill available space */
+.stats-column > * {
+    width: 100%;
+    height: 100%;
+}
+
+/* ========================================
+   CONTINUE LEARNING
+   ======================================== */
+
+.continue-learning {
+    width: 100%;
+    padding: 8px 0 4px;
+    position: relative;
+}
+
+
+/* Small fantasy/spy label above heading */
+.continue-learning::before {
+    content: "GUILD MISSIONS";
+    display: block;
+
+    color: var(--guild-purple-bright);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+
+.continue-learning h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--guild-text);
+    margin: 0;
+}
+
+
+/* ========================================
+   MODULES / MISSIONS GRID
+   ======================================== */
+
+.modules-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px;
     width: 100%;
 }
 
-/* Loading and Error States */
-.loading, .error {
-    text-align: center;
+
+/* ========================================
+   LOADING STATE
+   ======================================== */
+
+.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 180px;
     padding: 40px;
-    color: #b5bac1;
-    font-size: 1.1rem;
+
+    color: var(--guild-text-secondary);
+    font-size: 1rem;
+
+    background: var(--guild-surface);
+    border: 1px solid var(--guild-border);
+    border-radius: 12px;
 }
+
+
+/* ========================================
+   ERROR STATE
+   ======================================== */
 
 .error {
-    color: #ff6b6b;
+    padding: 20px;
+
+    color: #FCA5A5;
+    font-size: 0.95rem;
+
+    background: rgba(239, 68, 68, 0.08);
+    border: 1px solid rgba(239, 68, 68, 0.25);
+    border-radius: 10px;
 }
 
-/* Responsive for larger screens */
-@media (min-width: 768px) {
+
+/* ========================================
+   TABLET
+   ======================================== */
+
+@media (max-width: 1024px) {
+
     .dashboard {
-        max-width: 800px;
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 24px;
-        align-items: start;
+        padding: 20px;
     }
-    
-    .hero-stats-card {
-        grid-column: 1 / -1;
-        justify-self: center;
+
+    .top-row {
+        flex-direction: column;
+        align-items: center;
     }
-    
-    .stat-grid {
-        grid-column: 1 / -1;
+
+    .hero-column {
+        flex: 0 0 auto;
+        width: 100%;
+        max-width: 350px;
+    }
+
+    .stats-column {
+        width: 100%;
+    }
+
+    .stats-column > * {
+        height: auto;
+    }
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 640px) {
+
+    .dashboard {
+        padding: 14px;
+        gap: 18px;
+    }
+
+    .top-row {
+        gap: 18px;
+    }
+
+    .hero-column {
+        width: 100%;
         max-width: 100%;
     }
-    
+
     .modules-grid {
-        grid-column: 1 / -1;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 16px;
+        grid-template-columns: 1fr;
+        gap: 12px;
     }
+
+    .continue-learning {
+        padding-top: 4px;
+    }
+
+    .continue-learning h2 {
+        font-size: 1.15rem;
+    }
+
+    .continue-learning::before {
+        font-size: 0.6rem;
+    }
+}
+
+
+/* ========================================
+   VERY SMALL SCREENS
+   ======================================== */
+
+@media (max-width: 380px) {
+
+    .dashboard {
+        padding: 10px;
+        gap: 14px;
+    }
+
+    .top-row {
+        gap: 14px;
+    }
+
+    .modules-grid {
+        gap: 10px;
+    }
+}
+
+
+
+/* ========================================
+   MODULES PAGE
+   ======================================== */
+.modules-page {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.modules-header {
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+.modules-header h1 {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin: 0 0 6px 0;
+}
+
+.modules-header .subtitle {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0 0 25px 0;
+    display: block;
+}
+
+.modules-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 20px; 
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .modules-page {
+        padding: 12px;
+    }
+
+    .modules-header h1 {
+        font-size: 1.4rem;
+    }
+
+    .modules-header .subtitle {
+        font-size: 0.85rem;
+        margin: 0 0 16px 0;
+    }
+}
+
+/* ========================================
+   STORY MODAL
+   ======================================== */
+.story-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: storyFadeIn 0.3s ease;
+}
+
+.story-modal {
+    max-width: 900px;
+    width: 95%;
+    max-height: 90vh;
+    position: relative;
+    animation: storySlideUp 0.4s ease;
+}
+
+.story-close-btn {
+    position: absolute;
+    top: -45px;
+    right: 0;
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 10;
+    padding: 4px 12px;
+    transition: color 0.3s ease;
+}
+
+.story-close-btn:hover {
+    color: #ef4444;
+}
+
+@keyframes storyFadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes storySlideUp {
+    from { 
+        opacity: 0;
+        transform: translateY(40px) scale(0.95);
+    }
+    to { 
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Responsive Story Modal */
+@media (max-width: 768px) {
+    .story-close-btn {
+        top: -40px;
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .story-modal {
+        width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+    
+    .story-close-btn {
+        top: 10px;
+        right: 16px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 1.5rem;
+    }
+}
+
+/* Add to src/pages/dashboard.css */
+
+/* ========================================
+   TEST STORY BUTTON
+   ======================================== */
+.test-story-container {
+    display: flex;
+    justify-content: center;
+    margin: 8px 0 12px 0;
+}
+
+.test-story-btn {
+    padding: 10px 24px;
+    background: #7c3aed;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.test-story-btn:hover {
+    background: #8b5cf6;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(124, 58, 237, 0.3);
+}
+
+/* Add to src/pages/quizpage.css */
+
+.results-boss-coming {
+    margin-top: 10px;
+    padding: 8px 16px;
+    background: rgba(239, 68, 68, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(239, 68, 68, 0.2);
+    display: inline-block;
+}
+
+.results-boss-coming span {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--warning);
+    animation: pulse-text 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse-text {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
 }

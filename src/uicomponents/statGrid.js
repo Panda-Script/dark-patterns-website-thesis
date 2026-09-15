@@ -17,19 +17,19 @@ const StatGrid = ({userData}) => {
         //lessons
         { label: 'Lessons Completed', 
             value: lessonsDone, 
-            color: '#5865f2' },
+            color: '#0091ff' },
         //badges
         { label: 'Badges Earned', 
             value: badges,
-            color: '#faa81a'},
+            color: '#ffb300'},
         //overall xp
         { label: 'Total XP', 
             value: totalXP,
-            color: '#eb459e' },
+            color: '#ff75bf' },
         //modules
         { label: 'Modules Completed', 
             value: modulesDone,
-            color: '#57f287' }
+            color: '#83ffd8' }
     ];
 
     return (

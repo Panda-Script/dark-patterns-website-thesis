@@ -1,0 +1,156 @@
+/* src/uicomponents/tutorialmodal.css */
+
+/* ========================================
+   TUTORIAL POPUP (Corner style)
+   ======================================== */
+.tutorial-popup {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 320px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+    z-index: 9999;
+    overflow: hidden;
+    animation: tutorial-slide-in 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@keyframes tutorial-slide-in {
+    from {
+        opacity: 0;
+        transform: translateY(20px) translateX(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) translateX(0);
+    }
+}
+
+/* Header */
+.tutorial-popup-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: rgba(139, 92, 246, 0.08);
+    border-bottom: 1px solid var(--border);
+}
+
+.tutorial-popup-title {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.tutorial-popup-close {
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 1rem;
+    cursor: pointer;
+    padding: 2px 6px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    line-height: 1;
+}
+
+.tutorial-popup-close:hover {
+    background: rgba(255, 255, 255, 0.05);
+    color: var(--text-primary);
+}
+
+/* Body */
+.tutorial-popup-body {
+    padding: 16px;
+}
+
+.tutorial-popup-step {
+    margin-bottom: 14px;
+}
+
+.tutorial-popup-step-count {
+    display: inline-block;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--purple-bright);
+    background: rgba(139, 92, 246, 0.12);
+    padding: 2px 8px;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.tutorial-popup-step-title {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 6px 0;
+}
+
+.tutorial-popup-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Footer */
+.tutorial-popup-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.tutorial-popup-dots {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.tutorial-popup-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--border);
+    transition: all 0.3s ease;
+}
+
+.tutorial-popup-dot.active {
+    background: var(--purple);
+    width: 18px;
+    border-radius: 3px;
+}
+
+.tutorial-popup-next {
+    margin-left: auto;
+    padding: 8px 20px;
+    background: var(--purple);
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tutorial-popup-next:hover {
+    background: var(--purple-bright);
+    transform: translateY(-1px);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    .tutorial-popup {
+        left: 16px;
+        right: 16px;
+        bottom: 16px;
+        width: auto;
+    }
+}

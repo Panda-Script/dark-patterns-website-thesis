@@ -9,87 +9,149 @@
 //ability
 //comppercentage
 //level
-
 import React from "react";
-import './uicomponents.css';
+import "./uicomponents.css";
+import dummyimage from "../dummyimage.png";
+import { Gi3dHammer, GiCape } from "react-icons/gi";
+import { AiFillApi } from "react-icons/ai";
 
-const HeroStatsCard = ({ userData }) => {
-    //default data if userData is not provided
-     const {
-        displayName = 'Sam',
+const HeroStatsCard = ({ userData = {} }) => {
+
+    const {
+        displayName = "Sam",
         level = 1,
         xp = 0,
         xpToNext = 50,
-        title = 'Novice Defender',
-        ability = 'Can identify basic dark patterns',
-        avatar = null
+        title = "Novice Defender",
+        ability = "Can identify basic dark patterns",
+        avatar = null,
+        earnedBadges = ["First Steps", "Default Destroyer"]
     } = userData;
 
-    //xp progess percentage
-    const progressPercentage = Math.min((xp / xpToNext) * 100, 100);
+    const progressPercentage = Math.min(
+        (xp / xpToNext) * 100,
+        100
+    );
 
-    //Avatar image
-    const getAvatar = () => {
-        if (avatar) {
-            return avatar;
+    const avatarImage = avatar || dummyimage;
+
+    const getLatestBadge = () => {
+        if (earnedBadges && earnedBadges.length > 0) {
+            return earnedBadges[earnedBadges.length - 1];
         }
-        else{
-            return 'https://via.placeholder.com/100';
-        }
+
+        return null;
     };
-    const avatarImage = getAvatar();
-    //based on the image they have in their profile, if they have none, use a placeholder image
+
+    const getBadgeIcon = (badgeName) => {
+        const badgeIcons = {
+            "First Steps": <GiCape />,
+            "Default Destroyer": <Gi3dHammer />
+        };
+
+        return badgeIcons[badgeName] || <AiFillApi />;
+    };
+
+    const latestBadge = getLatestBadge();
+    const badgeIcon = latestBadge
+        ? getBadgeIcon(latestBadge)
+        : null;
+
 
     return (
         <div className="hero-stats-card">
-        {//banner bar
-        }
-        <div className="hero-stats-banner">
-        </div>
 
-        {/*Avatar img*/}
-        <div className="hero-stats-avatar">
-            <img src={avatarImage} alt="Avatar" 
-            className="avatar-image" />
-        </div>
+            {/* Banner */}
+            <div className="hero-stats-banner">
 
-        {/*body of the card*/}
-        <div className="hero-stats-body">
-            <div className="name-level-container">
-                <h2 className="hero-stats-username">{displayName}</h2>
-                <span className="hero-stats-level">Level {level}</span>
-            </div>
-            
-            <div className="title-ability-container">
+                <div className="hero-stats-avatar">
+                    <img
+                        src={avatarImage}
+                        alt="Avatar"
+                        className="avatar-image"
+                    />
+                </div>
 
-                <h3 className="hero-stats-title">{title}</h3>
-                
-                <p className="hero-stats-ability">{ability}</p> 
+                <div className="hero-stats-username">
+                    {displayName}
+                </div>
+
             </div>
 
-            <div className="progress-bar-container">
-                <div className="Progress-bar-wrapper">
-                    <div className="progress-bar">
-                        <div className="progress-bar-fill" 
-                        style={{ width: `${progressPercentage}%` }}>
+
+            {/* Body */}
+            <div className="hero-stats-body">
+
+                {/* Level & Badge */}
+                <div className="name-level-container">
+
+                    <div className="level-badge-wrapper">
+
+                        <span className="hero-stats-level">
+                            Lvl. {level}
+                        </span>
+
+                        {latestBadge && (
+                            <span
+                                className="hero-stats-badge"
+                                title={latestBadge}
+                            >
+                                {badgeIcon}
+                                {latestBadge}
+                            </span>
+                        )}
+
+                    </div>
+
+                </div>
+
+
+                {/* Title & Ability */}
+                <div className="title-ability-container">
+
+                    <h3 className="hero-stats-title">
+                        {title}
+                    </h3>
+
+                    <p className="hero-stats-ability">
+                        {ability}
+                    </p>
+
+                </div>
+
+
+                {/* Progress */}
+                <div className="progress-bar-container">
+
+                    <div className="progress-bar-wrapper">
+
+                        <div className="progress-bar">
+
+                            <div
+                                className="progress-bar-fill"
+                                style={{
+                                    width: `${progressPercentage}%`
+                                }}
+                            />
 
                         </div>
+
+                        <span className="progress-percentage">
+                            {progressPercentage.toFixed(0)}%
+                        </span>
+
                     </div>
-                    <span className="progress-percentage">
-                        {progressPercentage.toFixed(2)}%</span>
+
+                    <span className="progress-text">
+                        {xp} / {xpToNext} XP
+                    </span>
+
                 </div>
-                <span className="progress-text">{xp} / {xpToNext} XP</span>
-                </div>
+
             </div>
+
         </div>
     );
-    };
+};
 
-    export default HeroStatsCard;
-
-
-
-
-
-
-
+export default HeroStatsCard;
