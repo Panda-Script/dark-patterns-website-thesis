@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import { useUser } from "../context/UserContext";
 import { enemies } from "../data/enemyData";
-import { getCombatQuestion } from "../data/combatQuestionsData";
+import { getCombatQuestion } from "../data/combatQuestionData";
 import { getAbilityFromBoss } from "../data/abilitiesData";
 import { triggerConfetti } from "../utils/confetti";
 import { useTutorialTrigger } from "../hooks/useTutorialTrigger";
