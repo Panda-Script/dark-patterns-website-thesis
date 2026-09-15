@@ -1,4 +1,4 @@
-export const validationUsername = (username) => {
+export const validateUsername = (username) => {
     const trimmed = username.trim();
 
     if (!trimmed) {
