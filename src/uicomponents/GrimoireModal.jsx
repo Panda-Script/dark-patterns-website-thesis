@@ -4,7 +4,7 @@ import GrimoireLayout from "./GrimoireLayout";
 import GrimoireProfile from "./GrimoireProfile";
 import GrimoireArchive from "./GrimoireArchive";
 import GrimoireAbilities from "./GrimoireAbilities";
-import BadgesPage from "../pages/BadgesPage";
+import BadgesPage from "../pages/BadgePage";
 import { useTutorialTrigger } from "../hooks/useTutorialTrigger";
 import TutorialModal from "./TutorialModal";
 import './grimoiremodal.css';
