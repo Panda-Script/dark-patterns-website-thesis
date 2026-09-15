@@ -7,7 +7,7 @@ import GrimoireAbilities from "./GrimoireAbilities";
 import BadgesPage from "../pages/BadgePage";
 import { useTutorialTrigger } from "../hooks/useTutorialTrigger";
 import TutorialModal from "./TutorialModal";
-import './grimoiremodal.css';
+import './grimoire.css';
 
 const GrimoireModal = ({ isOpen, onClose }) => {
     const [activeTab, setActiveTab] = useState('profile');
