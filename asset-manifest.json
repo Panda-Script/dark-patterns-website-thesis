@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/dark-patterns-website-thesis/static/css/main.5b633e5d.css",
-    "main.js": "/dark-patterns-website-thesis/static/js/main.545210a7.js",
+    "main.js": "/dark-patterns-website-thesis/static/js/main.40fae067.js",
     "static/media/dummyimage.png": "/dark-patterns-website-thesis/static/media/dummyimage.6a38ae8c3ef3cf2943aa.png",
     "index.html": "/dark-patterns-website-thesis/index.html",
     "main.5b633e5d.css.map": "/dark-patterns-website-thesis/static/css/main.5b633e5d.css.map",
-    "main.545210a7.js.map": "/dark-patterns-website-thesis/static/js/main.545210a7.js.map"
+    "main.40fae067.js.map": "/dark-patterns-website-thesis/static/js/main.40fae067.js.map"
   },
   "entrypoints": [
     "static/css/main.5b633e5d.css",
-    "static/js/main.545210a7.js"
+    "static/js/main.40fae067.js"
   ]
 }
