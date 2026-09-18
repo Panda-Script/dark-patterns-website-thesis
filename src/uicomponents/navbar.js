@@ -16,10 +16,7 @@ const Navbar = ({ onOpenGrimoire }) => {  // ← ADD prop
             key: 'grimoire',
             isGrimoire: true  // ← Flag to identify Grimoire link
         },
-        { name: 'Badges', path: '/badges', key: 'badges' },
-        { name: 'Profile', path: '/profile', key: 'profile' },
         { name: 'Surveys', path: '/surveys', key: 'surveys' },
-        { name: 'Logout', path: '/logout', key: 'logout' }
     ];
 
     return (
