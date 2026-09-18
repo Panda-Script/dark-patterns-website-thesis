@@ -7,7 +7,6 @@ const GrimoireLayout = ({ children, activeTab, onTabChange, onClose }) => {
 
     const tabs = [
         { id: 'profile', label: 'Profile' },
-        { id: 'logs', label: 'Logs' },
         { id: 'badges', label: 'Badges' },
         { id: 'abilities', label: 'Abilities' }
     ];
